@@ -31,7 +31,6 @@ var program = require('commander');
 var cheerio = require('cheerio');
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
-
 var rest = require('restler');
 
 var assertFileExists = function(infile) {
@@ -62,11 +61,24 @@ var checkHtmlFile = function(htmlfile, checksfile) {
     return out;
 };
 
+
+ var checkHtmlLoadedFile = function(htmlfile, checksfile) {
+    $ = cheerio.load(htmlfile);
+    var checks = loadChecks(checksfile).sort();
+    var out = {};
+    for(var ii in checks) {
+	var present = $(checks[ii]).length > 0;
+	out[checks[ii]] = present;
+    }
+    return out;
+};
+
 var clone = function(fn) {
     // Workaround for commander.js issue.
     // http://stackoverflow.com/a/6772648
     return fn.bind({});
 };
+
 
 if(require.main == module) {
     program
@@ -77,21 +89,24 @@ if(require.main == module) {
    
     var checkJson;
     if (program.url != null) {
+
 	rest.get(program.url).on('complete', function(result){
 	       if (result instanceof Error) {
 		   sys.puts('Error: ' + result.message);
 		   this.retry(5000); // try again after 5 sec
 	       } else {
-		  sys.puts(result); 
-		  checkJson = checkHtmlFile(result, program.checks);
+		   checkJson = checkHtmlLoadedFile(result, program.checks);
+		   var outJson = JSON.stringify(checkJson, null, 4);
+		   console.log(outJson);
 	       }
-	}
+	});
 } else {
     checkJson=checkHtmlFile(program.file, program.checks);
-}
-    
     var outJson = JSON.stringify(checkJson, null, 4);
     console.log(outJson);
+}
+    
+
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
