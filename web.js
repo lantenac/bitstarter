@@ -9,6 +9,9 @@ app.get('/', function(request, response) {
 response.send(buffer.toString());
 });
 
+
+app.use("/static",express.static(__dirname+"/static"));
+
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);

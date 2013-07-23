@@ -2,8 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>My First Bitstarter</title>
+    <title>Serendipity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/bootplus.css">
+    <link rel="stylesheet" href="/static/css/bootplus-responsive.css>
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">    
@@ -124,26 +126,54 @@
       </div>
     </div>
 
+    
+
     <!-- We use row-fluid inside containers to achieve a resizable layout. -->
     <!-- blogs.endjin.com/2013/04/tips-for-implementing-responsive-designs-using-bootstrap/ -->
     <!-- http://stackoverflow.com/a/12270322 -->
     <div class="container">
+      
       <!-- Font and paired font of .heading/.subheading and body from Google Fonts -->
       <!-- www.google.com/fonts/specimen/Ubuntu -->
       <!-- www.google.com/fonts/specimen/Ubuntu#pairings -->
       <div class="row-fluid heading">
         <div class="span12">
-          <h1>Product</h1>
+          <h1>Serendipity, a seren way to meet people</h1>
         </div>
       </div> 
+
       <div class="row-fluid subheading">
         <div class="span12">
           <!-- Special typography from Bootstrap for lead paragraph. -->
           <!-- http://twitter.github.io/bootstrap/base-css.html#typography -->
-          <p class="lead">One sentence description.</p>
+          <p class="lead">  Find the places to be, directly on a map and wherever you are.  </p>
         </div>
       </div>
-      <div class="row-fluid pitch">
+
+
+      <div id="myCarousel" class="carousel slide">
+	<ol class="carousel-indicator">
+	  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	  <li data-target="#myCarousel" data-slide-to="1"></li>
+	  <li data-target="#myCarousel" data-slide-to="2"></li>
+	  </ol>
+
+	<div class="carousel-inner">
+	  <div class="active item"> 
+	    <href src="http://imgur.com/gallery/wdzy8YT" alt/> 
+	    <div class="carousel-caption">
+	      <h4> If your paper work doesn't fall on Ms. Nobody ? </h4>
+	    </div>
+	  </div>
+	  <div class="item"> </div>
+	  <div class="item"> </div>
+	</div>
+	
+	<a id="carousel-control left" href="#myCarousel" data-slide="prev"> &lsaquo;</a>
+	<a id="carousel-control right" href="#myCarousel" data-slide="next"> &rsaquo;</a>
+      </div>
+
+      <Div class="row-fluid pitch">
         <div class="span5 offset1 video">
           <img class="img-polaroid" src="http://placehold.it/480x300">
         </div>
@@ -246,37 +276,55 @@
       <div class="row-fluid faq">
           <div class="span10 offset1">
             <h3>FAQ</h3>
+
             <div class="accordion" id="accordion2">
+      
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <a class="accordion-toggle" data-toggle="collapse"
                      data-parent="#accordion2" href="#collapseOne">
-                    What does FAQ stand for?
+                    How to use Serendipity ?
                   </a>
                 </div>
                 <div id="collapseOne" class="accordion-body collapse">
                   <div class="accordion-inner">
-                    Frequently Asked Question.
+                    Serendipity is a mobile application. Just download it on AppStore or Googleplay.
                   </div>
                 </div>
               </div>
+
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <a class="accordion-toggle" data-toggle="collapse"
                      data-parent="#accordion2" href="#collapseTwo">
-                    What's a Frequently Asked Question?
+                    Shall i need to pay for using Serendipity ?
                   </a>
                 </div>
                 <div id="collapseTwo" class="accordion-body collapse">
                   <div class="accordion-inner">
-                    A question which is commonly asked by users.
+                    Serendipity is totally free for a public use.
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            
+              <div class="accordion" id="accordion2">
+		<div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse"
+                       data-parent="#accordion2" href="#collapseThree">
+                      Does my location appear on Serendipity map ?
+                    </a>
+                  </div>
+                  <div id="collapseThree" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                    No. Your location remains private. It's just used inside Serendipity for computing the public site score you are in.
+                    </div>
+                  </div>
+		</div>
 
+          </div>
       </div>
+	  </div>
 
       <!-- Not crucial, but we put this under a CC By-SA 3.0 license. -->
       <!-- http://creativecommons.org/licenses/ -->
